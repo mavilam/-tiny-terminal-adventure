@@ -1,0 +1,17 @@
+{
+  "name": "pepper-adventure",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "Tiny terminal kind game"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "clear": "^0.1.0",
+    "inquirer": "^7.1.0"
+  }
+}
