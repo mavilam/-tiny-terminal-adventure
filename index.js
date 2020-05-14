@@ -4,6 +4,8 @@ const clear = require('clear');
 const inquirier = require('./services/inquirier')
 const {sleep} = require('./utils/jsUtils')
 
+const initStage = require('./stages/initStage/initStage')
+
 clear();
 
 async function main() {
@@ -18,6 +20,8 @@ async function main() {
   console.log(
     chalk.yellow(`Ah sí, ya recuerdo. Me llamo ${nameInquiry.name}`)
   );
+
+  await initStage.initStage()
 }
 
 main()
