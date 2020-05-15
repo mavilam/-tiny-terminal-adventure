@@ -33,7 +33,7 @@ async function displayCredits() {
   await sleep(3000)
 
   console.log(
-    chalk.magenta.bold('Escrito y desarrollado con ❤️ por Miguel Ávila.')
+    chalk.magenta.bold('Escrito y desarrollado con ❤️  por Miguel Ávila.')
   )
   console.log('\n')
   await sleep(2000)
