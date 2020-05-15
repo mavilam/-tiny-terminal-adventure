@@ -5,6 +5,7 @@ const inquirier = require('./services/inquirier')
 const {sleep} = require('./utils/jsUtils')
 
 const initStage = require('./stages/initStage/initStage')
+const secondStage = require('./stages/secondStage/secondStage')
 
 clear();
 
@@ -21,7 +22,8 @@ async function main() {
     chalk.yellow(`Ah sí, ya recuerdo. Me llamo ${nameInquiry.name}`)
   );
 
-  await initStage.initStage()
+  await initStage.execute()
+  await secondStage.execute()
 }
 
 main()

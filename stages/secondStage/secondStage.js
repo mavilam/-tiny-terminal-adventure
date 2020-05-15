@@ -3,24 +3,19 @@ const chalk = require('chalk')
 
 const {sleep} = require('../../utils/jsUtils')
 
-const roomAction = require('./room')
+const hallwayAction = require('./hallway')
 const doorAction = require('./door')
-const windowAction = require('./window')
 
 var hasClue = false
 var completedAction = false
 
-const window = "Asomarme a la ventana"
-const door = "Acercarme a la puerta"
-const room = "Rastrear la zona"
+const hallway = "Mirar los cuadros de las paredes"
+const door = "Seguir adelante"
 
 const actionMachine = {
-  [window]: {
-    execute: windowAction.execute,
+  [hallway]: {
+    execute: hallwayAction.execute,
     executeWithResult: obtainClue
-  },
-  [room]: {
-    execute: roomAction.execute,
   },
   [door]: {
     execute: doorAction.execute,
@@ -28,19 +23,19 @@ const actionMachine = {
   },
 }
 
-async function initStage() {
+async function secondStage() {
 
   await sleep(2000)
 
   console.log(
-    chalk.blue.italic('Parece que estás en una habitación...')
+    chalk.blue.italic('Un corto pasillo te queda por delante.')
   );
 
   for(;;) {
-    const inquiry = await inquirier.runPrompt("action", "checkbox", "¿Qué debería hacer?", [room, door, window]);
+    const inquiry = await inquirier.runPrompt("action", "checkbox", "¿Qué hago ahora?", [door, hallway]);
 
     console.log(
-      chalk.yellow.italic(`Voy a ${inquiry.action}`)
+      chalk.yellow.italic(`Debería a ${inquiry.action}`)
     );
 
     var action = actionMachine[inquiry.action]
@@ -51,7 +46,7 @@ async function initStage() {
     
     if (completedAction) {
       console.log(
-        chalk.blue.italic('Abres la puerta y dejas atrás la habitación')
+        chalk.blue.italic('Sales del pasillo y parece que ves un salón delante tuya.')
       );
       return;
     }
@@ -67,5 +62,5 @@ function completeAction(hasActionFinished) {
 }
 
 module.exports = {
-  execute: initStage
+  execute: secondStage
 }
