@@ -28,7 +28,7 @@ const actionMachine = {
   },
 }
 
-async function initStage() {
+async function kitchenStage() {
 
   await sleep(2000)
 
@@ -67,5 +67,5 @@ function completeAction(hasActionFinished) {
 }
 
 module.exports = {
-  execute: initStage
+  execute: kitchenStage
 }

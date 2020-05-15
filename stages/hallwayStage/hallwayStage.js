@@ -23,7 +23,7 @@ const actionMachine = {
   },
 }
 
-async function secondStage() {
+async function hallwayStage() {
 
   await sleep(2000)
 
@@ -62,5 +62,5 @@ function completeAction(hasActionFinished) {
 }
 
 module.exports = {
-  execute: secondStage
+  execute: hallwayStage
 }

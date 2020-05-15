@@ -35,7 +35,7 @@ const actionMachine = {
   }
 }
 
-async function secondStage() {
+async function livingRoomStage() {
 
   await sleep(2000)
 
@@ -78,5 +78,5 @@ function completeAction(hasActionFinished) {
 }
 
 module.exports = {
-  execute: secondStage
+  execute: livingRoomStage
 }
