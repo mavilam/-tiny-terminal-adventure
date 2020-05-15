@@ -4,8 +4,9 @@ const clear = require('clear');
 const inquirier = require('./services/inquirier')
 const {sleep} = require('./utils/jsUtils')
 
-const initStage = require('./stages/initStage/initStage')
-const secondStage = require('./stages/secondStage/secondStage')
+const kitchenStage = require('./stages/kitchenStage/kitchenStage')
+const hallwayStage = require('./stages/hallwayStage/hallwayStage')
+const livingRoomStage = require('./stages/livingRoomStage/livingRoomStage')
 
 clear();
 
@@ -22,8 +23,9 @@ async function main() {
     chalk.yellow(`Ah sí, ya recuerdo. Me llamo ${nameInquiry.name}`)
   );
 
-  await initStage.execute()
-  await secondStage.execute()
+  await kitchenStage.execute()
+  await hallwayStage.execute()
+  await livingRoomStage.execute()
 }
 
 main()

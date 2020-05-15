@@ -13,7 +13,7 @@ async function initStageDoor(hasClue) {
     return true
   } else {
     console.log(
-      chalk.blue.italic('Tu cabeza te dice que deberías revisar un poco el entorno, toda pista te vendría bien.')
+      chalk.blue.italic('Tu cabeza te dice que revisar un poco el entorno te vendría bien, toda pista de donde estoy es necesaria.')
     ); 
     return false
   }
