@@ -24,19 +24,18 @@ const actionMachine = {
 }
 
 async function hallwayStage() {
-
   await sleep(2000)
 
   console.log(
     chalk.blue.italic('Un corto pasillo te queda por delante.')
-  );
+  )
 
   for(;;) {
-    const inquiry = await inquirier.runPrompt("action", "checkbox", "¿Qué hago ahora?", [door, hallway]);
+    const inquiry = await inquirier.runPrompt("action", "list", "¿Qué hago ahora?", [door, hallway])
 
     console.log(
-      chalk.yellow.italic(`Debería a ${inquiry.action}`)
-    );
+      chalk.yellow.italic(`Debería ${inquiry.action.toLowerCase()}`)
+    )
 
     var action = actionMachine[inquiry.action]
     const result = await action.execute(hasClue)
@@ -46,9 +45,9 @@ async function hallwayStage() {
     
     if (completedAction) {
       console.log(
-        chalk.blue.italic('Sales del pasillo y parece que ves un salón delante tuya.')
-      );
-      return;
+        chalk.blue.italic('Sales del pasillo y ves un salón delante de ti.')
+      )
+      return
     }
   }
 }

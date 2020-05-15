@@ -29,19 +29,18 @@ const actionMachine = {
 }
 
 async function kitchenStage() {
-
   await sleep(2000)
 
   console.log(
     chalk.blue.italic('Parece que estás en una habitación...')
-  );
+  )
 
   for(;;) {
-    const inquiry = await inquirier.runPrompt("action", "checkbox", "¿Qué debería hacer?", [room, door, window]);
+    const inquiry = await inquirier.runPrompt("action", "list", "¿Qué debería hacer?", [room, door, window])
 
     console.log(
-      chalk.yellow.italic(`Voy a ${inquiry.action}`)
-    );
+      chalk.yellow.italic(`Voy a ${inquiry.action.toLowerCase()}`)
+    )
 
     var action = actionMachine[inquiry.action]
     const result = await action.execute(hasClue)
@@ -51,9 +50,9 @@ async function kitchenStage() {
     
     if (completedAction) {
       console.log(
-        chalk.blue.italic('Abres la puerta y dejas atrás la habitación')
-      );
-      return;
+        chalk.blue.italic('Abres la puerta y dejas atrás la habitación.')
+      )
+      return
     }
   }
 }

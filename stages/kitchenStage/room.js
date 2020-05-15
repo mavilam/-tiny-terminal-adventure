@@ -12,7 +12,7 @@ async function initStageRoom() {
 
   console.log(
     chalk.yellow(getRandomElement(quotes))
-  );
+  )
 }
 
 module.exports = {

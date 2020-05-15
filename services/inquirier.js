@@ -1,7 +1,7 @@
-const inquirer = require('inquirer');
+const inquirer = require('inquirer')
 
 async function runPrompt(name, type, msg, checkboxOptions) {
-  return inquirer.prompt(createPrompt(name, type, msg, checkboxOptions));
+  return inquirer.prompt(createPrompt(name, type, msg, checkboxOptions))
 }
 
 function createPrompt(name, type, msg, checkboxOptions) {
@@ -13,9 +13,9 @@ function createPrompt(name, type, msg, checkboxOptions) {
       choices: checkboxOptions,
       validate: function( value ) {
         if (value.length) {
-          return true;
+          return true
         } else {
-          return msg;
+          return msg
         }
       }
     }

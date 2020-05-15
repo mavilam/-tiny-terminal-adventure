@@ -9,12 +9,12 @@ async function bathroomDoor(hasClue) {
   if (hasClue) {
     console.log(
       chalk.blue.italic('No queda más que ver aquí, estás muy cerca del final.')
-    ); 
+    ) 
     return true
   } else {
     console.log(
       chalk.blue.italic('Tu instinto te dice que dentro del armario hay algo necesario, tienes una sensacion similar a la del bastón.')
-    ); 
+    ) 
     return false
   }
 }

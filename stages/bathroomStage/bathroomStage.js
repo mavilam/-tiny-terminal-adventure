@@ -29,19 +29,18 @@ const actionMachine = {
 }
 
 async function bathroomStage() {
-
   await sleep(2000)
 
   console.log(
     chalk.blue.italic('Entras por la que tiene la puerta más abierta. Es el baño.')
-  );
+  )
 
   for(;;) {
-    const inquiry = await inquirier.runPrompt("action", "checkbox", "¿Qué debería hacer?", [room, wardrobe, exit]);
+    const inquiry = await inquirier.runPrompt("action", "list", "¿Qué debería hacer?", [room, wardrobe, exit])
 
     console.log(
-      chalk.yellow.italic(`Voy a ${inquiry.action}`)
-    );
+      chalk.yellow.italic(`Voy a ${inquiry.action.toLowerCase()}`)
+    )
 
     var action = actionMachine[inquiry.action]
     const result = await action.execute(hasPills)
@@ -51,9 +50,9 @@ async function bathroomStage() {
     
     if (completedAction) {
       console.log(
-        chalk.blue.italic('Sales y te diriges a la habitación que te falta por revisar.')
-      );
-      return;
+        chalk.blue.italic('Sales y te diriges a la habitación.')
+      )
+      return
     }
   }
 }

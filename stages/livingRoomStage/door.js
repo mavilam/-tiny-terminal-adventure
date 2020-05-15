@@ -8,13 +8,13 @@ async function initStageDoor(hasClue, hasStick) {
 
   if (hasClue && hasStick) {
     console.log(
-      chalk.blue.italic('Solo quedan dos habitaciones por mirar, sigamos.')
-    ); 
+      chalk.blue.italic('Solo quedan dos habitaciones por mirar.')
+    ) 
     return true
   } else {
     console.log(
       chalk.blue.italic('Tienes la sensación de que te estas dejando algo, no puedes quitártelo de la cabeza y vuelves a mirar')
-    ); 
+    ) 
     return false
   }
 }

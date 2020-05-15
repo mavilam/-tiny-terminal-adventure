@@ -1,5 +1,5 @@
 {
-  "name": "pepper-adventure",
+  "name": "tiny-terminal-adventure",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
@@ -10,8 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ascii-art": "^2.5.0",
     "chalk": "^4.0.0",
     "clear": "^0.1.0",
+    "clui": "^0.3.6",
     "inquirer": "^7.1.0"
   }
 }

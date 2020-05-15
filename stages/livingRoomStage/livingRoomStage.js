@@ -36,19 +36,18 @@ const actionMachine = {
 }
 
 async function livingRoomStage() {
-
   await sleep(2000)
 
   console.log(
-    chalk.blue.italic('Parece que has entrado a un salón.')
-  );
+    chalk.blue.italic('Entras en el salón. Hay polvo suspendido en el aire.')
+  )
 
   for(;;) {
-    const inquiry = await inquirier.runPrompt("action", "checkbox", "Sigamos, ¿Qué hago?", [door, room, stick, pictures]);
+    const inquiry = await inquirier.runPrompt("action", "list", "Sigamos, ¿Qué hago?", [door, room, stick, pictures]);
 
     console.log(
-      chalk.yellow.italic(`Vamos a ${inquiry.action}`)
-    );
+      chalk.yellow.italic(`Vamos a ${inquiry.action.toLowerCase()}`)
+    )
 
     var action = actionMachine[inquiry.action]
     const result = await action.execute(hasClue, hasStick)
@@ -59,8 +58,8 @@ async function livingRoomStage() {
     if (completedAction) {
       console.log(
         chalk.blue.italic('De las dos que quedan por entrar, una esta medio cerrada y otra abierta de par en par.')
-      );
-      return;
+      )
+      return
     }
   }
 }
